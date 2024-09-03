@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href=".assets/free.zing.mp3.vip.reference_1.png" type="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Music Player Platform | Mr Quan</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <button class="menu-btn" id="menu-close">
+                    <i class='bx bx-log-out-circle'></i>
+                </button>
+                <i class='bx bx-pulse'></i>
+                <a>Your Music</a>
+            </div>
+
+            <div class="menu">
+                <h5>Menu</h5>
+                <ul>
+                    <li class="trendingBtn">
+                        <i class='bx bxs-bolt-circle'></i>
+                        <a>Trending</a>
+                    </li>
+                    <li class="volumne">
+                        <i class='bx bx-volume-full' >                           
+                        </i>
+                        <a>Genres</a>
+                        <div class="playbar__volumne">
+                            <i class='bx bxs-volume-full'></i>
+                            <i class='bx bxs-volume-mute'></i>
+                            <input type="range" class="volumne__amount" value="100" oninput="app.progressInput(this)">
+                        </div>
+                    </li>
+                    <li>
+                        <i class='bx bxs-photo-album'></i>
+                        <a>Albums</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-microphone' ></i>
+                        <a>Artists</a>
+                    </li>
+                    <li>
+                        <i class='bx bx-podcast' ></i>
+                        <a>Podcasts </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu">
+                <h5>Library</h5>
+                <ul>
+                    <li>
+                        <i class='bx bx-undo'></i>
+                        <a>Recent</a>
+                    </li>
+                    
+                    <li>
+                        <i class='bx bxs-photo-album'></i>
+                        <a>Albums</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-heart' ></i>
+                        <a>Favourites</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-folder-open'></i>
+                        <a>Local</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu">
+                <h5>Playlist</h5>
+                <ul>
+                    <li>
+                        <i class='bx bxs-plus-square'></i>
+                        <a>Create New</a>
+                    </li>
+                    
+                    <li>
+                        <i class='bx bxs-caret-right-circle'></i>
+                        <a>Best of 2024</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-caret-right-circle'></i>
+                        <a>Best of 2023</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-caret-right-circle'></i>
+                        <a>Kael Fischer</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="playing">
+                <div class="top">
+                    <img src="assets/current.png">
+                    <h4>Your<br> Music</h4>
+                </div>
+                <div class="bottom">
+                    <i class='bx bx-podcast'></i>
+                    <p>Group 5</p>
+                </div>
+            </div>
+        </aside>
+        
+        <main id="main_content">
+            
+            <div class="trending-content" id="trending-block">
+                
+                    <div class="trending-content_title">
+                        <h2><i class="fa-solid fa-music"></i> Song Trending</h2> 
+                    </div>
+                    <div class="song_chart">
+                        <canvas id="myChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="song_char-btn">
+                        <button>Mở bảng xếp hạng</button>
+                    </div>
+
+                <div class="best_song--char">
+                    <div class="trending-content_title">
+                        <h2><i class="fa-solid fa-music"></i> Top video</h2> 
+                    </div>
+                    <div class="trending-content_video">
+                        
+                        <div class="video_dec">
+                            <ul class="video_dec-list">
+                                <li class="video_dec-list-item ">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/Son_Tung.jpg" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5> <i class="fa-solid fa-circle-play"></i> Đừng làm trái tim anh đau <br>| Sơn tùng M-TP
+                                        </h5>
+                                        
+                                    </div>
+                                </li>
+                                 <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img src="assets/img/sepVu.jpg" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Những lời hứa bỏ quên <br>| Vũ.
+                                        </h5>
+                                        
+                                    </div>
+                                </li>
+                                
+                                <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/hinh-anh-am-nhac-hinh-nen-am-nhac.jpg" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Bước qua mùa cô đơn <br>| Vũ.
+                                        </h5>
+                                        
+                                    </div>
+                                </li>
+                                <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/Divenha.webp" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Đi về nhà <br>| Đen, Justatee 
+                                        </h5>
+                                        
+                                    </div>
+                                </li> 
+                                <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/Divenha.webp" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Đi về nhà <br>| Đen, Justatee 
+                                        </h5>
+                                        
+                                    </div>
+                                </li> 
+                                <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/Divenha.webp" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Đi về nhà <br>| Đen, Justatee 
+                                        </h5>
+                                        
+                                    </div>
+                                </li> 
+                                <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/Divenha.webp" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Đi về nhà <br>| Đen, Justatee 
+                                        </h5>
+                                        
+                                    </div>
+                                </li> 
+                                <li class="video_dec-list-item user__notice-item--separate">
+                                    <div class="video_dec-list-item-img">
+                                        <img  src="assets/img/Divenha.webp" alt="">
+                                    </div>
+                                    <div class="video_dec-list-item-text">
+                                        <h5><i class="fa-solid fa-circle-play"></i> Đi về nhà <br>| Đen, Justatee 
+                                        </h5>
+                                        
+                                    </div>
+                                </li> 
+                            </ul>
+                            <!-- <img src="assets/img/DLTTAD.jpg" alt="">
+
+                            <div class="video_dec-info" >
+                                <i class="fa-solid fa-circle-play"></i>
+                                <h5>| ĐỪNG LÀM TRÁI TIM ANH ĐAU <br> SƠN TÙNG M-TP </h5>
+                            </div> -->
+                        </div>
+                        <div class="video_trend">
+                            <video class="best_song-video" controls src="assets/video/DungLamTraiTimAnhDau.mp4"></video>
+                        </div>
+                    </div>
+                    
+                    <!-- <video class="best_song-video" controls src="assets/video/SƠN TÙNG MTP-ĐỪNG LÀM TRÁI TIM ANH ĐAU.mp4"></video>
+                    <h5>SƠN TÙNG M-TP | ĐỪNG LÀM TRÁI TIM ANH ĐAU | OFFICIAL MUSIC VIDEO</h5> -->
+                </div>
+            </div>
+            <!-- navLink -->
+            <header>
+                <div class="nav-links">
+                    <button class="menu-btn" id="menu-open">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    <a>Music</a>
+                    <a>Live</a>
+                    <a>Podcast</a>
+                </div>
+
+                <div class="search">
+                    <i class='bx bx-search-alt-2'></i>
+                    <input type="text" placeholder="Type here to search">
+                </div>
+            </header>
+            <!-- Trending -->
+            <div class="trending">
+                <div class="left">
+                    <h5>Play List</h5>
+                    <div class="info">
+                        <h2>Lost Emotions</h2>
+                        <h4>Rion Clarke</h4>
+                        <h5>63 Million Plays</h5>
+                        <div class="buttons-action">
+                            <button class="listen">Listen Now</button>
+                            <button class="stop">Stop Now</button>
+                            <i class='bx bxs-heart' ></i>
+                            <i class='bx bx-heart'></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="waves">
+                    <span class="wave paused" style="width: 0px;"></span>
+                    <span class="wave paused" style="width: 0px;"></span>
+                    <span class="wave paused" style="width: 0px;"></span>
+                    <span class="wave paused" style="width: 0px;"></span>
+                    <span class="wave paused" style="width: 0px;"></span>
+                    <span class="wave paused" style="width: 0px;"></span>
+                    <span class="wave paused" style="width: 0px;"></span>
+                  </div>
+                <div class="left-img">
+                    <!-- <img src="assets/trend.png" style="height: 200px; width: 300px;" alt=""> -->
+                </div>
+                
+            </div>
+         
+            <!-- Playlist -->
+            <div class="playlist">
+                <!-- Music genres -->
+                <div class="genres">
+                    <div class="header">
+                        <h5>Genres</h5>
+                        <a> See all </a>
+                    </div>
+
+                    <div class="items">
+                        <div class="item pop">
+                            <p>Electro Pop</p>
+                            <div class="music-items__list">
+        
+                            </div>
+                        </div>
+
+                        <div class="item beat">
+                            <p>Dance Beat</p>
+                            <div class="music-items__list">
+        
+                            </div>
+                        </div>
+
+                        <div class="item remix">
+                            <p>Clubhouse Remix</p>
+                            <div class="music-items__list">
+        
+                            </div>
+                        </div>
+
+                        <div class="item rap">
+                            <p>Hip Hop Rap</p>
+                            <div class="music-items__list">
+        
+                            </div>
+                        </div>
+
+                        <div class="item indie">
+                            <p>Alternative Indie</p>
+                            <div class="music-items__list">
+        
+                            </div>
+                        </div>
+
+                        <div class="item period">
+                            <p>Classical Period</p>
+                            <div class="music-items__list">
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List music -->
+                <div class="music-list">
+                    <div class="header">
+                        <h5>Top Songs</h5>
+                        <a>See all </a>
+                    </div>
+
+                    <div class="music-items">
+                         
+                    </div>
+                </div>
+
+            </div>
+            
+        </main>
+
+       
+
+        <div class="right-section">
+            <!-- Profile -->
+            <div class="profile">
+                <div class="user">
+                    <div class="left">
+                        <img src="assets/img/ttt.jpg" alt="">
+                    </div>
+                    <div class="right">
+                        <h5>Qu_an</h5>
+                    </div>
+                    <ul class="header__navbar-user-menu">
+                        <li class="header__navbar-user-item">
+                            <a href="" class="">Tài khoản của tôi</a>
+                        </li>
+
+                        <li class="header__navbar-user-item">
+                            <a href="" class="">Tải nhạc lên</a>
+                        </li>
+
+                        <li class="header__navbar-user-item">
+                            <a href="" class="">Đổi mật khẩu</a>
+                        </li>
+
+                        <li class="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="https://qldt.ptit.edu.vn/#/home" target="_parent" class="">Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notices">
+                    <i class='bx bxs-bell'></i>
+                    <ul class="user__notice">
+                        <div class="user__notice-lable">
+                            <h5>Mới</h5>
+                            <h5>Xem tất cả</h5>
+                        </div>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/sepTung.jpg" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5>Sơn Tùng M-TP vừa "thả xích" siêu phẩm mới: "Đừng làm trái tim anh đau"! 
+                                </h5>
+                                <h6>2 giờ trước</h6>
+                            </div>
+                        </li>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/sepVu.jpg" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5>Bài hát "Những lời hứa bỏ quên" của Vũ
+                                    đã chạm đến con tim của khán giả! 
+                                </h5>
+                                <h6>2 giờ trước</h6>
+                            </div>
+                        </li>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/Son_Tung.jpg" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5> Sơn Tùng M-TP chính thức ra mắt album mới "Sky Tour": 
+                                    Một hành trình âm nhạc !
+                                </h5>
+                                <h6>3 giờ trước</h6>
+                            </div>
+                        </li>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/hinh-anh-am-nhac-hinh-nen-am-nhac.jpg" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5>Lịch trình âm nhạc 2024: Bùng nổ với loạt sản phẩm mới từ các nghệ sĩ đình đám!
+                                    Nghe ngay!
+                                </h5>
+                                <h6>3 giờ trước</h6>
+                            </div>
+                        </li>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/Divenha.webp" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5>Cùng nhau thưởng thức nhạc của Đen, Justatee:
+                                    "Đi về nhà" 
+                                </h5>
+                                <h6>15 giờ trước</h6>
+                            </div>
+                        </li>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/motdemsay.jpg" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5>"Một đêm say"-Thịnh Suy: Chữa rách những vết thương chưa lành?
+                                </h5>
+                                <h6>15 giờ trước</h6>
+                            </div>
+                        </li>
+                        <li class="user__notice-item user__notice-item--separate">
+                            <div class="item-img">
+                                <img  src="assets/img/best2024.jpg" alt="">
+                            </div>
+                            <div class="item-text">
+                                <h5>Những bản nhạc Best 2024 <br> Nghe ngay!</h5> 
+                                </h5>
+                                <h6>23 giờ trước</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <!-- Music player -->
+            <div class="music-player">
+                <div class="top-section">
+                    <div class="header">
+                        <h5>Player</h5>
+                        <i class='bx bxs-playlist'></i>
+                    </div>
+                    <div class="song-info">
+                        <div class="cd">
+                            <div class="cd-thumb"></div>
+                            <!-- <img src="assets/player.png" alt=""> -->
+                        </div>
+                        <div class="description">
+                            <h3>Ripple Echoes</h3>
+                            <!-- <h5>Kael Fischer</h5> -->
+                            <p>Best of 2024</p>
+                        </div>
+                        <div class="time">
+                            <p class="time-start">0:00</p>
+                            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+                            <!-- <p class="start">02:45</p>
+                            <div class="active-line"></div>
+                            <div class="deactive-line"></div>
+                            <p class="end">01:02</p> -->
+                            </input>
+                            <p class="time-end">0:00</p>
+                        </div>
+                        
+
+                        <audio id="audio" src=""></audio>
+
+                    </div>
+                </div>
+
+                <div class="player-actions">
+                    <div class="buttons">
+                        <div class="btn btn-repeat">
+                            <i class='bx bx-repeat'></i>
+                            <i class='bx bx-atom'></i>
+                        </div>
+                        <div class="btn btn-prev">
+                            <i class='bx bx-skip-previous'></i>                      
+                        </div>
+                        <div class="btn btn-toggle-play play-toggle">
+                            <i class='bx bx-play play-button'></i>
+                            <i class='bx bx-pause play-pause'></i>
+                        </div>
+                        <div class="btn btn-next">
+                            <i class='bx bx-skip-next' ></i>
+                        </div>
+                        <div class="btn btn-random">
+                            <i class='bx bx-transfer-alt' ></i>
+                          </div>
+                    </div>
+
+                    <div class="lyrics">
+                        <i class='bx bx-chevron-up' ></i>
+                        <i class='bx bx-chevron-down'></i>
+                        <h5>Lyrics</h5>
+                        <div class="lyrics-song hidden">
+                            <div class="lyrics-song__name">
+
+                            </div>
+                            <div class="lyrics-songs">
+                                ${formatLyrics(song.lyrics)}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        
+    </div>
+    
+    
+      <script>
+        var form = new validator1('#form-1');
+        form.onSubmit = function(formData) {
+            console.log(formData);
+        }
+
+        </script> 
+
+    <!-- <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        
+        // Dữ liệu với tên bài hát
+        const labels = ['23:00', '01:00', '03:00', '05:00', '07:00', '09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'];
+        const dataPoints = [
+            {x: '23:00', y: 10, song: '100 Years Love'},
+            {x: '01:00', y: 20, song: 'Đi về nhà'},
+            {x: '03:00', y: 15, song: 'Hẹn em ở lần yêu thứ 2'},
+            {x: '05:00', y: 25, song: '1 phút'},
+            {x: '07:00', y: 30, song: 'Những lời hứa bỏ quên'},
+            {x: '09:00', y: 45, song: 'Từng là'},
+            {x: '11:00', y: 40, song: 'Khi phải quên đi'},
+            {x: '13:00', y: 50, song: 'Đừng làm trái tim anh đau'},
+            {x: '15:00', y: 45, song: 'Đưa nhau đi trốn'},
+            {x: '17:00', y: 35, song: 'Cắt đôi nỗi sầu'},
+            {x: '19:00', y: 25, song: 'Vì ngày hôm nay em cưới rồi'},
+            {x: '21:00', y: 20, song: 'Ước mơ của mẹ'}
+        ];
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Biểu đồ #zingchart',
+                    data: dataPoints.map(point => ({ x: point.x, y: point.y })),  // Chỉ sử dụng x, y để vẽ biểu đồ
+                    backgroundColor: 'rgba(88, 115, 255,0.5)',
+                    borderColor: 'rgba(0, 119, 204, 1)',
+                    borderWidth: 2,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: 'rgba(0, 119, 204, 1)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(context) {
+                                const index = context.dataIndex;  // Lấy chỉ số của điểm dữ liệu hiện tại
+                                const songName = dataPoints[index].song;  // Lấy tên bài hát
+                                const value = context.raw.y;  // Lấy giá trị y
+                                return `${songName}: ${value}`;  // Hiển thị tên bài hát và giá trị
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script> -->
+      
+    <script type='text/javascript' src="script.js"></script>
+    
+
+</body>
+</html>
